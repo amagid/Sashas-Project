@@ -3,7 +3,6 @@ const http = require('http');
 const express = require('express');
 const app = express();
 const config = require('../config').get();
-const logger = require('./services/logger');
 const db = require('./services/mysql');
 const routes = require('./routes');
 const bodyParser = require('body-parser');
@@ -18,13 +17,9 @@ db.connect().then((connection) => {
 });
 
 const server = http.Server(app);
-//Set up SocketIO server for realtime services
-//const io = socketIO(server);
-
-//setUpSocket();
 
 server.listen(process.env.PORT || config.app.port);
-logger.info(`Server listening on port ${process.env.PORT || config.app.port}`);
+console.log(`Server listening on port ${process.env.PORT || config.app.port}`);
 
 
 function setUpAPI() {
@@ -40,16 +35,3 @@ function setUpAPI() {
     routes(router);
     app.use('/', router);
 }
-
-/*
-function setUpSocket() {
-    io.on('connection', socket => {
-        console.log('Connection Received');
-        socket.emit('connected', 'connected');
-
-        socket.on('disconnect', () => {
-            console.log('Connection Terminated');
-        });
-    });
-}
-*/

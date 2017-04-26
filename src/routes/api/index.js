@@ -1,3 +1,3 @@
 module.exports = function mountAPI(router) {
-    router.get('/', (req, res) => res.promise('You\'re a dipshit'));
+    router.get('/', (req, res) => res.promise('Basic routing works!'));
 };

@@ -1,5 +1,4 @@
 const Promise = require('bluebird');
-const logger = require('../services/logger');
 
 module.exports = attachResponsePromise;
 
@@ -10,11 +9,11 @@ function attachResponsePromise(req, res, next) {
                 res.status(200).json(result);
             })
             .catch(error => {
-                logger.warn(error);
+                console.log(error);
                 res.status(error.status || error.statusCode || 500).json(error.message || 'Unknown Error');
             })
             .catch(error => {
-                logger.error(error);
+                console.error(error);
                 res.status(500, 'Unknown Error');
             });
     };
