@@ -34,4 +34,8 @@ function setUpAPI() {
     const router = express.Router();
     routes(router);
     app.use('/', router);
+    
+    router.get('/', (req, res) => res.sendFile(__dirname + "/frontend/index.html"));
+    router.get('/css', (req, res) => res.sendFile(__dirname + "/frontend/style.css"));
+    router.get('/js', (req, res) => res.sendFile(__dirname + "/frontend/script.js"));
 }
