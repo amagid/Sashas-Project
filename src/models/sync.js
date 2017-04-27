@@ -1,7 +1,12 @@
-const Template = require('./Template');
+// const Template = require('./Template');
+const Posts = require('./Posts');
+const Comments = require('./Comments');
+
+const Promise = require('bluebird');
 
 module.exports = sync;
 
 function sync() {
-    return Template.sync();
+    return Posts.sync()
+    	.then(() => Comments.sync);
 }

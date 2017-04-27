@@ -38,4 +38,8 @@ function setUpAPI() {
     router.get('/', (req, res) => res.sendFile(__dirname + "/frontend/index.html"));
     router.get('/css', (req, res) => res.sendFile(__dirname + "/frontend/style.css"));
     router.get('/js', (req, res) => res.sendFile(__dirname + "/frontend/script.js"));
+
+    router.get('/posts/:pid', (req, res) => res.sendFile(__dirname + "/frontend/index2.html"));
+    router.get('/js2', (req, res) => res.sendFile(__dirname + "/frontend/script2.js"));
 }
+

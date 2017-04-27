@@ -3,9 +3,28 @@
         "port": 3001
     },
 
+    "jwt": {
+        "expiresIn": "1h"
+    },
+
     "db": {
-        "name": "boilerplate",
-        "username": "user1234",
-        "password": "p@55w0rd"
+        "name": "eecs393",
+        "username": "root",
+        "password": "yoyoyo345",
+        "settings": {
+            "host": "localhost",
+            "dialect": "mysql",
+            "pool": {
+                "max": 1,
+                "min": 0,
+                "idle": 10000
+            },
+            "logging": false,
+            "define": {
+                "paranoid": false,
+                "timestamps": false,
+                "underscored": true
+            }
+        }
     }
 }
